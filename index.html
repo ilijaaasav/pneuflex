@@ -27,6 +27,7 @@
   <meta property="og:image:alt" content="Radionica SN Pneuflex u Novim Banovcima">
   <meta name="twitter:card" content="summary_large_image">
 
+  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
@@ -74,10 +75,8 @@
   <!-- ===== Header ===== -->
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <!-- Logo: tekstualni. Za pravu sliku zameniti sadržaj linka sa <img src="images/logo.svg" alt="SN Pneuflex"> -->
       <a href="#top" class="logo" aria-label="SN Pneuflex – početak stranice">
-        <span class="logo-mark" aria-hidden="true"></span>
-        <span class="logo-text">SN PNEUFLEX</span>
+        <img src="images/logo-light.svg" alt="" width="729" height="100">
       </a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Otvori meni">
@@ -89,7 +88,7 @@
           <li><a href="#usluge">Usluge</a></li>
           <li><a href="#zasto-mi">Zašto mi</a></li>
           <li><a href="#brendovi">Brendovi</a></li>
-          <li><a href="#galerija">Galerija</a></li>
+          <li class="pending"><a href="#galerija">Galerija</a></li>
           <li><a href="#recenzije">Recenzije</a></li>
           <li><a href="#lokacija">Radno vreme</a></li>
         </ul>
@@ -104,9 +103,9 @@
     <section class="hero">
       <div class="hero-media">
         <picture>
-          <source type="image/webp" srcset="images/storefront-md.webp 800w, images/storefront-lg.webp 1600w" sizes="(min-width: 900px) 65vw, 100vw">
-          <img src="images/storefront-lg.jpg" srcset="images/storefront-md.jpg 800w, images/storefront-lg.jpg 1600w" sizes="(min-width: 900px) 65vw, 100vw"
-               alt="Radionica SN Pneuflex sa natpisima Vulkanizer i Hotel za gume i parkingom ispred" width="1600" height="1200" fetchpriority="high">
+          <source type="image/webp" srcset="images/storefront-md.webp 800w, images/storefront-lg.webp 1600w" sizes="(min-width: 900px) 65vw, 150vw">
+          <img src="images/storefront-lg.jpg" srcset="images/storefront-md.jpg 800w, images/storefront-lg.jpg 1600w" sizes="(min-width: 900px) 65vw, 150vw"
+               alt="Radionica SN Pneuflex sa natpisima Vulkanizer i SN Pneuflex" width="1600" height="1200" fetchpriority="high">
         </picture>
       </div>
       <div class="container hero-inner">
@@ -148,58 +147,59 @@
           <p>Za putnička vozila i laka dostavna vozila. Cene su na upit.</p>
         </header>
 
+        <!-- Kartice sa klasom "pending" su skrivene dok se CONFIRM stavka ne potvrdi. Za prikaz: obrisati klasu "pending". -->
         <div class="cards">
           <article class="card reveal">
             <span class="card-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v6M12 16v6M2 12h6M16 12h6M4.9 4.9l4.3 4.3M14.8 14.8l4.3 4.3M4.9 19.1l4.3-4.3M14.8 9.2l4.3-4.3"/></svg></span>
             <h3>Nove i polovne gume</h3>
             <p>Prodaja novih i polovnih guma iz uvoza iz Švajcarske (CH).</p>
-            <div class="card-foot"><span class="card-tag">Cena na upit</span><a href="#upit" class="link-arrow" data-preselect="Kupovina guma">Upit</a></div>
+            <div class="card-foot"><span class="card-tag">Cena na upit</span><a href="#upit" class="btn btn-primary btn-sm card-cta" data-preselect="Kupovina guma" aria-label="Zakaži: Nove i polovne gume">Zakaži <span class="card-cta-arrow" aria-hidden="true">→</span></a></div>
           </article>
           <article class="card reveal">
             <span class="card-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="2"/><path d="M12 10V2M13.9 11.4l7.6-2.5M13.2 13.6l4.7 6.5M10.8 13.6l-4.7 6.5M10.1 11.4 2.5 8.9"/></svg></span>
             <h3>Felne</h3>
             <p>Aluminijumske i čelične felne. Veliki izbor.</p>
-            <div class="card-foot"><span class="card-tag">Cena na upit</span><a href="#upit" class="link-arrow" data-preselect="Kupovina felni">Upit</a></div>
+            <div class="card-foot"><span class="card-tag">Cena na upit</span><a href="#upit" class="btn btn-primary btn-sm card-cta" data-preselect="Kupovina felni" aria-label="Zakaži: Felne">Zakaži <span class="card-cta-arrow" aria-hidden="true">→</span></a></div>
           </article>
           <article class="card reveal">
             <span class="card-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35Z"/><path d="M6 18h12M6 14h12"/><rect x="6" y="10" width="12" height="12"/></svg></span>
             <h3>Hotel za gume</h3>
             <p>Sezonsko skladištenje vaših guma kod nas.</p>
-            <div class="card-foot"><span class="card-tag">Cena na upit</span><a href="#upit" class="link-arrow" data-preselect="Hotel za gume">Upit</a></div>
+            <div class="card-foot"><span class="card-tag">Cena na upit</span><a href="#upit" class="btn btn-primary btn-sm card-cta" data-preselect="Hotel za gume" aria-label="Zakaži: Hotel za gume">Zakaži <span class="card-cta-arrow" aria-hidden="true">→</span></a></div>
           </article>
           <article class="card reveal">
             <span class="card-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
             <h3>Zamena i montaža guma</h3>
             <p>Montaža, zamena i sezonska promena guma.</p>
-            <div class="card-foot"><span class="card-tag">Cena na upit</span><a href="#upit" class="link-arrow" data-preselect="Zamena guma">Zakaži</a></div>
+            <div class="card-foot"><span class="card-tag">Cena na upit</span><a href="#upit" class="btn btn-primary btn-sm card-cta" data-preselect="Zamena guma" aria-label="Zakaži: Zamena i montaža guma">Zakaži <span class="card-cta-arrow" aria-hidden="true">→</span></a></div>
           </article>
           <!-- CONFIRM: da li besplatna zamena na gumama kupljenim u radnji i dalje važi -->
-          <article class="card reveal">
+          <article class="card reveal pending">
             <span class="card-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg></span>
             <h3>Besplatna zamena</h3>
             <p>Besplatna zamena na gumama koje kupite kod nas.</p>
-            <div class="card-foot"><span></span><a href="#upit" class="link-arrow" data-preselect="Kupovina guma">Upit</a></div>
+            <div class="card-foot"><span></span><a href="#upit" class="btn btn-primary btn-sm card-cta" data-preselect="Zamena guma" aria-label="Zakaži: Besplatna zamena">Zakaži <span class="card-cta-arrow" aria-hidden="true">→</span></a></div>
           </article>
           <!-- CONFIRM: trajanje garancije na ENRG akumulatore (broj meseci), pa ga dodati u tekst -->
-          <article class="card reveal">
+          <article class="card reveal pending">
             <span class="card-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="13" rx="2"/><path d="M6 7V4h3v3M15 7V4h3v3M6 13h4M8 11v4M14 13h4"/></svg></span>
             <h3>Akumulatori ENRG</h3>
             <p>Auto akumulatori ENRG sa garancijom.</p>
-            <div class="card-foot"><span class="card-tag">Cena na upit</span><a href="#upit" class="link-arrow" data-preselect="Akumulator">Upit</a></div>
+            <div class="card-foot"><span class="card-tag">Cena na upit</span><a href="#upit" class="btn btn-primary btn-sm card-cta" data-preselect="Akumulator" aria-label="Zakaži: Akumulatori ENRG">Zakaži <span class="card-cta-arrow" aria-hidden="true">→</span></a></div>
           </article>
           <!-- CONFIRM: koje popravke radi mehaničar, pa ih navesti u tekstu -->
-          <article class="card reveal">
+          <article class="card reveal pending">
             <span class="card-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg></span>
             <h3>Mehaničar</h3>
             <p>Mehaničar na licu mesta. Za vrstu popravke proverite telefonom.</p>
-            <div class="card-foot"><span class="card-tag">Cena na upit</span><a href="#upit" class="link-arrow" data-preselect="Mehaničar">Zakaži</a></div>
+            <div class="card-foot"><span class="card-tag">Cena na upit</span><a href="#upit" class="btn btn-primary btn-sm card-cta" data-preselect="Mehaničar" aria-label="Zakaži: Mehaničar">Zakaži <span class="card-cta-arrow" aria-hidden="true">→</span></a></div>
           </article>
           <!-- CONFIRM: da li radnja radi balansiranje i popravku probušene gume -->
-          <article class="card reveal">
+          <article class="card reveal pending">
             <span class="card-icon"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M7 21h10M5 7h14M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z"/></svg></span>
             <h3>Balansiranje i popravka</h3>
             <p>Balansiranje točkova i popravka probušene gume.</p>
-            <div class="card-foot"><span class="card-tag">Cena na upit</span><a href="#upit" class="link-arrow" data-preselect="Drugo">Zakaži</a></div>
+            <div class="card-foot"><span class="card-tag">Cena na upit</span><a href="#upit" class="btn btn-primary btn-sm card-cta" data-preselect="Drugo" aria-label="Zakaži: Balansiranje i popravka">Zakaži <span class="card-cta-arrow" aria-hidden="true">→</span></a></div>
           </article>
         </div>
       </div>
@@ -246,59 +246,44 @@
     </section>
 
     <!-- ===== Brendovi ===== -->
-    <section class="section" id="brendovi">
-      <div class="container brands">
-        <div class="reveal">
-          <p class="eyebrow">Brendovi</p>
-          <h2>Brendovi koje radimo</h2>
-          <!-- CONFIRM: spisak brendova (na natpisu radnje su i Michelin, Hankook i Toyo, a Sava nije) -->
-          <ul class="badges">
-            <li>Pirelli</li>
-            <li>Continental</li>
-            <li>Goodyear</li>
-            <li>Sava</li>
-            <li>Bridgestone</li>
-          </ul>
-          <p class="muted">Za dimenziju koja vam treba i trenutno stanje pozovite <a href="tel:+381603355657">060 3355657</a> ili pošaljite upit.</p>
-        </div>
-        <figure class="brands-photo reveal">
-          <picture>
-            <source type="image/webp" srcset="images/flags-md.webp 450w, images/flags-lg.webp 900w" sizes="(min-width: 900px) 360px, 60vw">
-            <img src="images/flags-md.jpg" srcset="images/flags-md.jpg 450w, images/flags-lg.jpg 900w" sizes="(min-width: 900px) 360px, 60vw"
-                 alt="Zastave sa natpisima Pirelli i Continental ispred radnje" width="900" height="1600" loading="lazy" decoding="async">
-          </picture>
-        </figure>
+    <section class="section section-dark brand-band" id="brendovi">
+      <picture class="brand-band-bg">
+        <source type="image/webp" srcset="images/flags-band.webp">
+        <img src="images/flags-band.jpg" alt="" width="1080" height="1100" loading="lazy" decoding="async">
+      </picture>
+      <div class="container brand-band-inner reveal">
+        <p class="eyebrow">Brendovi</p>
+        <h2>Brendovi koje radimo</h2>
+        <!-- CONFIRM: spisak brendova (na natpisu radnje su i Michelin, Hankook i Toyo, a Sava nije) -->
+        <ul class="badges">
+          <li>Pirelli</li>
+          <li>Continental</li>
+          <li>Goodyear</li>
+          <li>Sava</li>
+          <li>Bridgestone</li>
+        </ul>
+        <p class="brand-band-note">Za dimenziju koja vam treba i trenutno stanje pozovite <a href="tel:+381603355657">060 3355657</a> ili pošaljite upit.</p>
       </div>
     </section>
 
     <!-- ===== Galerija ===== -->
-    <section class="section section-alt" id="galerija">
+    <!-- Skriveno dok nema novih fotografija: sve tri postojeće su već u hero, "Zašto mi" i "Brendovi" sekcijama.
+         Za prikaz: dodati .gallery-item dugmad i obrisati klasu "pending" ovde i kod linka "Galerija" u navigaciji. -->
+    <section class="section section-alt pending" id="galerija">
       <div class="container">
         <header class="section-head reveal">
           <p class="eyebrow">Galerija</p>
           <h2>Pogledajte radnju</h2>
         </header>
-        <!-- Nova fotografija: dodati još jedno .gallery-item dugme; data-full je putanja bez ekstenzije (.webp i .jpg) -->
-        <div class="gallery reveal">
-          <button type="button" class="gallery-item" data-full="images/storefront-lg" aria-label="Uvećaj fotografiju radionice">
-            <picture>
-              <source type="image/webp" srcset="images/storefront-md.webp">
-              <img src="images/storefront-md.jpg" alt="Radionica SN Pneuflex spolja, sa parkingom" width="800" height="600" loading="lazy" decoding="async">
-            </picture>
-          </button>
-          <button type="button" class="gallery-item" data-full="images/stock-lg" aria-label="Uvećaj fotografiju guma">
-            <picture>
-              <source type="image/webp" srcset="images/stock-md.webp">
-              <img src="images/stock-md.jpg" alt="Nove gume složene u radnji" width="800" height="600" loading="lazy" decoding="async">
-            </picture>
-          </button>
-          <button type="button" class="gallery-item" data-full="images/flags-lg" aria-label="Uvećaj fotografiju zastava">
-            <picture>
-              <source type="image/webp" srcset="images/flags-md.webp">
-              <img src="images/flags-md.jpg" alt="Zastave sa natpisima Pirelli i Continental ispred radnje" width="450" height="800" loading="lazy" decoding="async">
-            </picture>
-          </button>
-        </div>
+        <!-- Nova fotografija (data-full je putanja bez ekstenzije, postoje .webp i .jpg):
+        <button type="button" class="gallery-item" data-full="images/NAZIV-lg" aria-label="Uvećaj fotografiju">
+          <picture>
+            <source type="image/webp" srcset="images/NAZIV-md.webp">
+            <img src="images/NAZIV-md.jpg" alt="OPIS" width="800" height="600" loading="lazy" decoding="async">
+          </picture>
+        </button>
+        -->
+        <div class="gallery reveal"></div>
       </div>
     </section>
 
@@ -438,9 +423,8 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
-        <a href="#top" class="logo" aria-label="Na vrh stranice">
-          <span class="logo-mark" aria-hidden="true"></span>
-          <span class="logo-text">SN PNEUFLEX</span>
+        <a href="#top" class="logo" aria-label="SN Pneuflex – na vrh stranice">
+          <img src="images/logo-light.svg" alt="" width="729" height="100" loading="lazy">
         </a>
         <p class="footer-tagline">Vulkanizer, Novi Banovci. Gume, felne i hotel za gume.</p>
       </div>

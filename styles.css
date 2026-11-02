@@ -11,8 +11,8 @@
   --yellow-hover: #FFD21F;
 
   --text: #2E2F30;
-  --muted: #5C5E61;
-  --on-dark: rgba(255, 255, 255, .82);
+  --muted: #4A4C4F;
+  --on-dark: rgba(255, 255, 255, .92);
   --bg: #FFFFFF;
   --bg-alt: #F2F2F1;
   --border: #DEDEDC;
@@ -119,14 +119,8 @@ section[id] { scroll-margin-top: var(--header-h); }
 }
 
 /* ---------- Logo ---------- */
-.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: #fff; }
-.logo-mark {
-  flex: none; width: 34px; height: 34px; border-radius: 50%; background: #fff; position: relative;
-}
-.logo-mark::after {
-  content: ""; position: absolute; inset: 8px; border-radius: 50%; border: 5px solid var(--graphite);
-}
-.logo-text { font-family: var(--font); font-size: 1.28rem; font-weight: 700; letter-spacing: .02em; line-height: 1; white-space: nowrap; }
+.logo { display: inline-flex; text-decoration: none; }
+.logo img { height: 36px; width: auto; }
 
 /* ---------- Header ---------- */
 .site-header { position: sticky; top: 0; z-index: 100; background: var(--graphite); color: #fff; transition: box-shadow .2s; }
@@ -174,10 +168,12 @@ section[id] { scroll-margin-top: var(--header-h); }
 
 /* ---------- Hero ---------- */
 .hero { position: relative; background: var(--graphite); color: #fff; overflow: hidden; }
-.hero-media img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: 88% 52%; }
+/* Natpis SN PNEUFLEX je desno i gore na fotografiji: na telefonu ga uvećavamo, a sizes u HTML-u (150vw) daje dovoljno piksela */
+.hero-media { overflow: hidden; }
+.hero-media img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: 100% 32%; transform: scale(1.5); transform-origin: 100% 32%; }
 .hero-inner { position: relative; padding-top: 26px; padding-bottom: 40px; }
 .hero h1 { color: #fff; }
-.lead { font-size: clamp(1.1rem, 2.4vw, 1.3rem); color: var(--on-dark); max-width: 36ch; }
+.lead { font-size: clamp(1.225rem, 2.4vw, 1.425rem); color: var(--on-dark); max-width: 36ch; }
 .hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 22px 0 18px; }
 .hero-actions .btn { padding-left: 10px; padding-right: 10px; }
 .google-badge {
@@ -199,10 +195,14 @@ section[id] { scroll-margin-top: var(--header-h); }
   .hero { min-height: min(680px, calc(100dvh - var(--header-h) - 58px)); display: flex; align-items: center; }
   .hero-media { position: absolute; inset: 0 0 0 36%; }
   .hero-media picture { display: block; height: 100%; }
-  .hero-media img { height: 100%; aspect-ratio: auto; object-position: 100% 50%; }
+  .hero-media img { height: 100%; aspect-ratio: auto; object-position: 100% 32%; transform: none; }
   .hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--graphite) 0%, rgba(46, 47, 48, .78) 22%, rgba(46, 47, 48, 0) 52%); }
   .hero-inner { padding-top: 56px; padding-bottom: 56px; }
   .hero-copy { max-width: 540px; }
+}
+/* Užim ekranima naslov ulazi dublje u fotografiju, a natpis je i dalje desno od njega */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .hero-media::after { background: linear-gradient(90deg, var(--graphite) 0%, rgba(46, 47, 48, .9) 42%, rgba(46, 47, 48, 0) 56%); }
 }
 
 /* Traka sa osnovnim podacima */
@@ -226,17 +226,23 @@ section[id] { scroll-margin-top: var(--header-h); }
 .cards { display: grid; gap: 12px; }
 .card { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--border); border-top: 3px solid var(--graphite); border-radius: var(--radius); padding: 20px; }
 .card h3 { margin-bottom: .35em; }
-.card p { color: var(--muted); flex: 1; margin-bottom: 16px; }
+.card p { color: var(--muted); font-size: 1.1875rem; line-height: 1.45; flex: 1; margin-bottom: 16px; }
 .card-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--graphite); color: #fff; margin-bottom: 14px; }
 .card-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .card-tag { font-size: .88rem; font-weight: 600; color: var(--muted); }
+.card-cta { min-height: 44px; margin-left: auto; white-space: nowrap; }
+.card-cta-arrow { display: inline-block; font-family: var(--font); transition: transform 200ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) {
+  .card-cta:hover .card-cta-arrow { transform: translateX(3px); }
+}
 @media (min-width: 620px) { .cards { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
 @media (min-width: 1040px) { .cards { grid-template-columns: repeat(4, 1fr); } }
 
 /* Zašto mi */
 .why { display: grid; gap: 32px; }
 .why-photo { margin: 0; }
-.why-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 15%; border-radius: var(--radius); }
+/* 16/10 od vrha: odseca mutan beli predmet pri dnu fotografije. max-width = prirodna širina, slika se nikad ne uvećava. */
+.why-photo img { width: 100%; max-width: 1600px; aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 0; border-radius: var(--radius); }
 .why-list { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 16px; }
 .why-list li { display: flex; gap: 14px; }
 .why-list .icon { color: #fff; margin-top: 2px; }
@@ -245,22 +251,23 @@ section[id] { scroll-margin-top: var(--header-h); }
 .why-note { margin: 0; font-size: .98rem; color: rgba(255, 255, 255, .68); }
 @media (min-width: 900px) {
   .why { grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-  .why-photo img { aspect-ratio: 1 / 1; }
 }
 
-/* Brendovi */
-.brands { display: grid; gap: 28px; align-items: center; }
-.badges { list-style: none; padding: 0; margin: 4px 0 20px; display: flex; flex-wrap: wrap; gap: 10px; }
+/* Brendovi: traka preko cele širine, zatamnjena fotografija zastava u pozadini */
+.brand-band { overflow: hidden; color: #fff; text-align: center; }
+.brand-band::before { z-index: 1; }
+.brand-band-bg { position: absolute; inset: 0; }
+.brand-band-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
+.brand-band-bg::after { content: ""; position: absolute; inset: 0; background: rgba(31, 32, 33, .8); }
+.brand-band-inner { position: relative; z-index: 1; }
+.brand-band .eyebrow { color: rgba(255, 255, 255, .85); }
+.badges { list-style: none; padding: 0; margin: 8px 0 24px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
 .badges li {
   font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; line-height: 1;
-  border: 2px solid var(--graphite); border-radius: var(--radius); padding: 10px 16px;
+  border: 2px solid #fff; border-radius: var(--radius); padding: 10px 16px; background: rgba(31, 32, 33, .55);
 }
-.brands-photo { margin: 0; }
-.brands-photo img { width: 100%; aspect-ratio: 16 / 11; object-fit: cover; object-position: 50% 30%; border-radius: var(--radius); }
-@media (min-width: 900px) {
-  .brands { grid-template-columns: 1.5fr 1fr; gap: 64px; }
-  .brands-photo img { aspect-ratio: 4 / 5; }
-}
+.brand-band-note { margin: 0 auto; max-width: 52ch; }
+.brand-band-note a { color: #fff; font-weight: 700; white-space: nowrap; }
 
 /* Galerija */
 .gallery { display: grid; grid-template-columns: 1.333fr .5625fr; gap: 8px; }
@@ -341,7 +348,7 @@ section[id] { scroll-margin-top: var(--header-h); }
 .field.has-error input, .field.has-error select, .field.has-error textarea { border-color: var(--error); }
 .error { color: var(--error); font-size: .92rem; margin: 6px 0 0; }
 .error:empty { display: none; }
-::placeholder { color: #77797C; }
+::placeholder { color: #66686B; }
 
 .radios { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 .radio {
@@ -385,6 +392,9 @@ section[id] { scroll-margin-top: var(--header-h); }
 .fab.is-hidden { transform: translateY(calc(100% + 24px)); opacity: 0; pointer-events: none; }
 @media (min-width: 900px) { .fab { display: none; } }
 
+/* Skriveno dok se sadržaj ne potvrdi: za prikaz obrisati klasu "pending" u HTML-u */
+.pending { display: none !important; }
+
 /* ---------- Animacije ---------- */
 /* Ulazak sekcija pri skrolu: jednom, kratko, sa malim pomakom */
 .js .reveal { opacity: 0; transform: translateY(12px); transition: opacity 500ms var(--ease-out), transform 500ms var(--ease-out); }
@@ -400,6 +410,7 @@ section[id] { scroll-margin-top: var(--header-h); }
   .hero-enter { animation-name: hero-fade; }
   @keyframes hero-fade { from { opacity: 0; } }
   .btn:active:not(:disabled) { transform: none; }
+  .card-cta-arrow { transition: none; }
   .fab.is-hidden { transform: none; }
   .site-nav.is-open, .form-status:not([hidden]) {
     @starting-style { transform: none; }

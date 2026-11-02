@@ -53,7 +53,7 @@
   const panel = el("section", { class: "chat-panel", id: "chat-panel", role: "dialog", "aria-modal": "false", "aria-label": "Čet sa asistentom", hidden: "" });
   panel.innerHTML = `
     <header class="chat-head">
-      <span class="logo-mark" aria-hidden="true"></span>
+      <img src="images/favicon.svg" alt="" width="34" height="34">
       <div class="chat-title"><strong>Asistent SN Pneuflex</strong><small>AI asistent · odgovara odmah</small></div>
       <button type="button" class="chat-close" aria-label="Zatvori čet">${ICON_X}</button>
     </header>
