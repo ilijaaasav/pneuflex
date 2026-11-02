@@ -4,7 +4,7 @@
 // Kada vlasnik potvrdi stavku iz dela NEPOTVRĐENO, prebacite je u deo USLUGE.
 // =========================================================
 
-export const SERVICES = ["Zamena guma", "Kupovina guma", "Kupovina felni", "Hotel za gume", "Akumulator", "Mehaničar", "Drugo"];
+export const SERVICES = ["Zamena guma", "Kupovina guma", "Kupovina felni", "Hotel za gume", "Akumulator", "Drugo"];
 
 export const KNOWLEDGE = `
 O RADNJI
@@ -12,7 +12,7 @@ O RADNJI
 - Adresa: Svetosavska 185, 22303 Novi Banovci (Stara Pazova).
 - Telefon: 060 3355657. Email: snpneuflex@gmail.com. Instagram: sn_pneuflex.
 - Radno vreme: ponedeljak–petak 08–17, subota 09–14, nedelja ne radimo.
-- Na licu mesta: mehaničar, toalet, parking, prostor za čekanje sa kafom. Preporučuje se da se termin zakaže unapred.
+- Na licu mesta: toalet, parking, prostor za čekanje sa kafom. Preporučuje se da se termin zakaže unapred.
 - Područje: Novi Banovci, Stari Banovci, Batajnica, Stara Pazova, Nova Pazova.
 - Google ocena: 5.0 na osnovu 39 recenzija.
 
@@ -25,7 +25,6 @@ USLUGE
 NEPOTVRĐENO – ove stavke ne tvrdi kao sigurne; pomeni ih samo uz reči "proverite telefonom" i broj 060 3355657
 - Besplatna zamena guma na gumama kupljenim u radnji.
 - ENRG akumulatori sa garancijom; trajanje garancije nije poznato.
-- Koje popravke radi mehaničar.
 - Balansiranje i popravka probušene gume.
 - Brendovi guma: Pirelli, Continental, Goodyear, Sava, Bridgestone.
 `;

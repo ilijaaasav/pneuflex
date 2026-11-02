@@ -82,7 +82,6 @@ address { font-style: normal; margin: 0 0 1em; }
 
 :focus-visible { outline: 3px solid currentColor; outline-offset: 2px; border-radius: 2px; }
 
-.muted { color: var(--muted); }
 .icon { width: 24px; height: 24px; flex: none; display: block; }
 
 section[id] { scroll-margin-top: var(--header-h); }
@@ -107,6 +106,10 @@ section[id] { scroll-margin-top: var(--header-h); }
 .btn-primary:disabled { opacity: .65; cursor: progress; }
 @media (hover: hover) and (pointer: fine) {
   .btn-primary:hover { background: var(--yellow-hover); }
+}
+.btn-secondary { background: transparent; color: var(--graphite); box-shadow: inset 0 0 0 2px var(--graphite); }
+@media (hover: hover) and (pointer: fine) {
+  .btn-secondary:hover { background: var(--bg-alt); }
 }
 .btn-sm { min-height: 42px; padding: 8px 18px; font-size: 1.1rem; }
 .btn-lg { min-height: 56px; padding: 14px 28px; font-size: 1.35rem; }
@@ -172,7 +175,8 @@ section[id] { scroll-margin-top: var(--header-h); }
 .hero-media { overflow: hidden; }
 .hero-media img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: 100% 32%; transform: scale(1.5); transform-origin: 100% 32%; }
 .hero-inner { position: relative; padding-top: 26px; padding-bottom: 40px; }
-.hero h1 { color: #fff; }
+.hero h1 { color: #fff; text-wrap: balance; }
+@media (max-width: 343px) { .hero h1 { font-size: 2.45rem; } }
 .lead { font-size: clamp(1.225rem, 2.4vw, 1.425rem); color: var(--on-dark); max-width: 36ch; }
 .hero-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 22px 0 18px; }
 .hero-actions .btn { padding-left: 10px; padding-right: 10px; }
@@ -226,48 +230,34 @@ section[id] { scroll-margin-top: var(--header-h); }
 .cards { display: grid; gap: 12px; }
 .card { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--border); border-top: 3px solid var(--graphite); border-radius: var(--radius); padding: 20px; }
 .card h3 { margin-bottom: .35em; }
-.card p { color: var(--muted); font-size: 1.1875rem; line-height: 1.45; flex: 1; margin-bottom: 16px; }
+.card p { color: var(--muted); font-size: 1.1875rem; line-height: 1.45; margin-bottom: 0; }
 .card-icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--graphite); color: #fff; margin-bottom: 14px; }
-.card-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.card-tag { font-size: .88rem; font-weight: 600; color: var(--muted); }
-.card-cta { min-height: 44px; margin-left: auto; white-space: nowrap; }
-.card-cta-arrow { display: inline-block; font-family: var(--font); transition: transform 200ms var(--ease-out); }
-@media (hover: hover) and (pointer: fine) {
-  .card-cta:hover .card-cta-arrow { transform: translateX(3px); }
+.services-cta { margin-top: 32px; text-align: center; }
+.services-cta p { color: var(--muted); font-size: .98rem; max-width: 60ch; margin: 0 auto 14px; }
+.services-cta-actions { display: flex; flex-direction: column; gap: 10px; }
+@media (min-width: 620px) {
+  .services-cta-actions { flex-direction: row; justify-content: center; }
 }
 @media (min-width: 620px) { .cards { grid-template-columns: repeat(2, 1fr); gap: 16px; } }
 @media (min-width: 1040px) { .cards { grid-template-columns: repeat(4, 1fr); } }
 
-/* Zašto mi */
-.why { display: grid; gap: 32px; }
-.why-photo { margin: 0; }
-/* 16/10 od vrha: odseca mutan beli predmet pri dnu fotografije. max-width = prirodna širina, slika se nikad ne uvećava. */
-.why-photo img { width: 100%; max-width: 1600px; aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 0; border-radius: var(--radius); }
-.why-list { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 16px; }
-.why-list li { display: flex; gap: 14px; }
-.why-list .icon { color: #fff; margin-top: 2px; }
-.why-list strong { color: #fff; font-size: 1.1rem; }
-.why-list p { margin: 0; }
-.why-note { margin: 0; font-size: .98rem; color: rgba(255, 255, 255, .68); }
-@media (min-width: 900px) {
-  .why { grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-}
-
-/* Brendovi: traka preko cele širine, zatamnjena fotografija zastava u pozadini */
-.brand-band { overflow: hidden; color: #fff; text-align: center; }
+/* Brendovi: uska traka preko cele širine, zatamnjena fotografija zastava u pozadini */
+.brand-band { overflow: hidden; color: #fff; text-align: center; padding: 40px 0 28px; }
 .brand-band::before { z-index: 1; }
 .brand-band-bg { position: absolute; inset: 0; }
 .brand-band-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 28%; }
 .brand-band-bg::after { content: ""; position: absolute; inset: 0; background: rgba(31, 32, 33, .8); }
 .brand-band-inner { position: relative; z-index: 1; }
-.brand-band .eyebrow { color: rgba(255, 255, 255, .85); }
-.badges { list-style: none; padding: 0; margin: 8px 0 24px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.brand-band h2 { font-size: clamp(1.6rem, 4vw, 2rem); margin-bottom: 14px; }
+.badges { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
 .badges li {
-  font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; line-height: 1;
-  border: 2px solid #fff; border-radius: var(--radius); padding: 10px 16px; background: rgba(31, 32, 33, .55);
+  font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; line-height: 1;
+  border: 2px solid #fff; border-radius: var(--radius); padding: 8px 12px; background: rgba(31, 32, 33, .55);
 }
-.brand-band-note { margin: 0 auto; max-width: 52ch; }
-.brand-band-note a { color: #fff; font-weight: 700; white-space: nowrap; }
+@media (min-width: 1000px) {
+  .brand-band-inner { display: flex; align-items: center; justify-content: center; gap: 28px; }
+  .brand-band h2 { margin-bottom: 0; white-space: nowrap; }
+}
 
 /* Galerija */
 .gallery { display: grid; grid-template-columns: 1.333fr .5625fr; gap: 8px; }
@@ -284,6 +274,12 @@ section[id] { scroll-margin-top: var(--header-h); }
   .gallery { grid-template-columns: 1.333fr 1.333fr .5625fr; gap: 12px; }
   .gallery-item:first-child { grid-column: auto; }
 }
+/* Jedna fotografija: cela širina. Kadar od vrha odseca mutan beli predmet pri dnu fotografije. */
+.gallery-item:only-child { grid-column: 1 / -1; }
+.gallery-item:only-child img { aspect-ratio: 16 / 10; object-position: 50% 0; }
+@media (min-width: 760px) {
+  .gallery-item:only-child img { aspect-ratio: 2 / 1; }
+}
 
 .lightbox { border: 0; padding: 0; margin: 0; width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; background: rgba(20, 20, 21, .96); color: #fff; overflow: hidden; }
 .lightbox::backdrop { background: rgba(20, 20, 21, .96); }
@@ -294,6 +290,7 @@ section[id] { scroll-margin-top: var(--header-h); }
 .lightbox-close { top: max(8px, env(safe-area-inset-top)); right: 8px; }
 .lightbox-prev { left: 8px; top: 50%; transform: translateY(-50%); font-size: 2.2rem; }
 .lightbox-next { right: 8px; top: 50%; transform: translateY(-50%); font-size: 2.2rem; }
+.lightbox.is-single .lightbox-prev, .lightbox.is-single .lightbox-next, .lightbox.is-single .lightbox-count { display: none; }
 .lightbox-count { position: absolute; bottom: max(14px, env(safe-area-inset-bottom)); left: 0; right: 0; margin: 0; text-align: center; font-size: .95rem; color: var(--on-dark); }
 @media (hover: hover) and (pointer: fine) {
   .lightbox-btn:hover { background: rgba(70, 70, 72, .9); }
@@ -309,22 +306,23 @@ section[id] { scroll-margin-top: var(--header-h); }
 @media (min-width: 680px) { .reviews { columns: 2; } }
 @media (min-width: 1040px) { .reviews { columns: 3; } }
 
-/* Lokacija */
-.location { display: grid; gap: 32px; }
+/* Kontakt: forma + radno vreme i mapa */
+.contact { display: grid; gap: 48px; }
+.contact-booking { min-width: 0; scroll-margin-top: calc(var(--header-h) + 24px); }
+.contact-intro { margin-bottom: 24px; }
+.contact-intro p:last-child { font-size: 1.12rem; margin-bottom: 0; }
+.contact-intro a, .contact-info a { color: #fff; font-weight: 700; }
+.contact-intro a { white-space: nowrap; }
+.contact-info { min-width: 0; }
+.contact-info strong { color: #fff; }
 .hours { width: 100%; border-collapse: collapse; margin-bottom: 12px; font-size: 1.1rem; }
-.hours th, .hours td { padding: 10px 0; border-bottom: 1px solid var(--border-strong); text-align: left; }
+.hours th, .hours td { padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, .28); text-align: left; }
 .hours th { font-weight: 500; }
-.hours td { text-align: right; font-weight: 700; white-space: nowrap; }
+.hours td { text-align: right; font-weight: 700; color: #fff; white-space: nowrap; }
 .hours-note { font-weight: 600; margin-bottom: 20px; }
-.map { min-height: 340px; background: var(--border); border-radius: var(--radius); overflow: hidden; }
-.map iframe { display: block; width: 100%; height: 100%; min-height: 340px; border: 0; }
-@media (min-width: 900px) { .location { grid-template-columns: 1fr 1.3fr; gap: 56px; } }
-
-/* Zakazivanje */
-.inquiry { display: grid; gap: 28px; }
-.inquiry-intro p:last-child { font-size: 1.12rem; }
-.inquiry-intro a { color: #fff; font-weight: 700; white-space: nowrap; }
-@media (min-width: 900px) { .inquiry { grid-template-columns: 1fr 1.6fr; gap: 64px; align-items: start; } }
+.map { margin-bottom: 14px; background: var(--graphite-soft); border-radius: var(--radius); overflow: hidden; }
+.map iframe { display: block; width: 100%; height: 340px; border: 0; }
+@media (min-width: 900px) { .contact { grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: start; } }
 
 .form { background: #fff; color: var(--text); border-radius: var(--radius); padding: 22px 16px; }
 @media (min-width: 640px) { .form { padding: 32px; } }
@@ -410,7 +408,6 @@ section[id] { scroll-margin-top: var(--header-h); }
   .hero-enter { animation-name: hero-fade; }
   @keyframes hero-fade { from { opacity: 0; } }
   .btn:active:not(:disabled) { transform: none; }
-  .card-cta-arrow { transition: none; }
   .fab.is-hidden { transform: none; }
   .site-nav.is-open, .form-status:not([hidden]) {
     @starting-style { transform: none; }

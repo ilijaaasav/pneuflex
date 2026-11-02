@@ -11,7 +11,7 @@
   const GREETING =
     "Zdravo! Ja sam asistent radnje SN Pneuflex. Mogu da vam pomognem oko guma, felni, hotela za gume i zakazivanja. Šta vas zanima?";
   const CHIPS = ["Zakaži zamenu guma", "Imate li gume za moj auto?", "Kako radi hotel za gume?", "Radno vreme i lokacija"];
-  const SERVICES = ["Zamena guma", "Kupovina guma", "Kupovina felni", "Hotel za gume", "Akumulator", "Mehaničar", "Drugo"];
+  const SERVICES = ["Zamena guma", "Kupovina guma", "Kupovina felni", "Hotel za gume", "Akumulator", "Drugo"];
 
   const history = []; // { role: "user" | "assistant", content }
   let userCount = 0;

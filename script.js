@@ -62,6 +62,7 @@ const MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/ZAMENITE_VASIM_WEBHOOKOM";
   const boxFigure = box.querySelector(".lightbox-figure");
   const boxCount = box.querySelector(".lightbox-count");
   let current = 0;
+  box.classList.toggle("is-single", items.length < 2);
 
   function showImage(i) {
     current = (i + items.length) % items.length;
@@ -99,14 +100,6 @@ const MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/ZAMENITE_VASIM_WEBHOOKOM";
   // source: "sms" kada je posetilac došao sa ?src=sms, inače "form"
   const source = new URLSearchParams(location.search).get("src") === "sms" ? "sms" : "form";
   document.getElementById("f-source").value = source;
-
-  // Linkovi sa data-preselect unapred biraju uslugu
-  document.querySelectorAll("[data-preselect]").forEach((link) => {
-    link.addEventListener("click", () => {
-      serviceSelect.value = link.dataset.preselect;
-      clearError(serviceSelect);
-    });
-  });
 
   // Lokalni datum (toISOString bi posle ponoći vratio juče)
   const now = new Date();
