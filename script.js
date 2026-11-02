@@ -2,8 +2,8 @@
    SN Pneuflex – script.js
    ========================================================= */
 
-// Make webhook za formu – zameniti pravim URL-om (isti URL ide i u Netlify → MAKE_WEBHOOK_URL, za čet)
-const MAKE_WEBHOOK_URL = "https://hook.eu1.make.com/ZAMENITE_VASIM_WEBHOOKOM";
+// Make webhook za formu (isti URL mora da bude i u Netlify → MAKE_WEBHOOK_URL, za čet)
+const MAKE_WEBHOOK_URL = "https://hook.eu2.make.com/nfxyshz524a4h28jh6n97h3ymswbemq1";
 
 (function () {
   "use strict";
