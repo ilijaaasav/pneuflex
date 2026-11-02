@@ -12,6 +12,12 @@
   [headers.values]
     Cache-Control = "public, max-age=604800"
 
+# Kratak link za SMS poruke: forma šalje source "sms"
+[[redirects]]
+  from = "/z"
+  to = "/?src=sms#upit"
+  status = 302
+
 # Fajlovi funkcija (baza znanja, pravila) ne smeju biti javno dostupni
 [[redirects]]
   from = "/netlify/*"

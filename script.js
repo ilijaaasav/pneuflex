@@ -56,6 +56,22 @@ const MAKE_WEBHOOK_URL = "https://hook.eu2.make.com/nfxyshz524a4h28jh6n97h3ymswb
     }, { threshold: 0.05 }).observe(inquirySection);
   }
 
+  /* ---------- Dolazak na #sekciju (npr. /z iz SMS-a) ---------- */
+  // Bez animacije preko cele stranice; web fontovi posle pomere sadržaj, pa ponovo poravnavamo.
+  // Reload i "nazad" ostavljaju browseru da vrati poziciju, a skrol posetioca ima prednost.
+  const hashTarget = location.hash && document.getElementById(location.hash.slice(1));
+  const navType = performance.getEntriesByType("navigation")[0];
+  if (hashTarget && (!navType || navType.type === "navigate")) {
+    let userMoved = false;
+    ["wheel", "touchstart", "keydown"].forEach((type) => window.addEventListener(type, () => { userMoved = true; }, { once: true, passive: true }));
+    const align = () => { if (!userMoved) hashTarget.scrollIntoView({ behavior: "instant" }); };
+    align();
+    window.addEventListener("load", () => {
+      align();
+      if (document.fonts) document.fonts.ready.then(align);
+    });
+  }
+
   /* ---------- Galerija (lightbox) ---------- */
   const items = Array.from(document.querySelectorAll(".gallery-item"));
   const box = document.getElementById("lightbox");
